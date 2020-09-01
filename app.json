@@ -1,0 +1,12 @@
+{
+  "name": "myp",
+  "displayName": "myp",
+  "expo": {
+    "name": "myp",
+    "slug": "myp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
