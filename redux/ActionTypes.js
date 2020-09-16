@@ -7,5 +7,5 @@ export const PROMOS_LOADING = 'PROMOS-LOADING';
 export const ADD_PROMOS = 'ADD_PROMOS';
 export const PROMOS_FAILED = 'PROMOS-FAILED';
 export const LEADERS_LOADING = 'LEADERS-LOADING';
-export const ADD_LEADERSS = 'ADD_LEADERS';
+export const ADD_LEADERS = 'ADD_LEADERS';
 export const LEADERS_FAILED = 'LEADERS-FAILED';
