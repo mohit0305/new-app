@@ -3,6 +3,8 @@ import Menu from './MenuComponent';
 import Home from './HomeComponent';
 //import {DISHES} from '../shared/dishes';
 import Dishdetail from './DishdetailComponent';
+import Reservation from './ReservationComponent';
+import Favorites from './FavoriteComponent';
 import {View,Platform , Image,StyleSheet,ScrollView, Text} from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator,DrawerItems}  from 'react-navigation-drawer';
@@ -102,6 +104,44 @@ const AboutUsNavigator = createAppContainer(createStackNavigator({
         />
     })
 }));
+
+
+const ReservationNavigator = createAppContainer(createStackNavigator({
+    Reservation : {screen : Reservation },
+},{
+    defaultNavigationOptions : ({navigation}) => ( {
+        headerStyle : {
+            backgroundColor : '#512DA8'
+        },
+        headerTintColor : '#fff',
+        headerTitleStyle : {
+            color : '#fff'
+        },
+        headerLeft : <Icon name = 'list' size = {24}
+        color = 'white'
+        onpress = {()=> navigation.toggleDrawer()}
+        />
+    })
+}));
+
+const FavoritesNavigator = createAppContainer(createStackNavigator({
+    Favorites : {screen :Favorites },
+},{
+    defaultNavigationOptions : ({navigation}) => ( {
+        headerStyle : {
+            backgroundColor : '#512DA8'
+        },
+        headerTintColor : '#fff',
+        headerTitleStyle : {
+            color : '#fff'
+        },
+        headerLeft : <Icon name = 'list' size = {24}
+        color = 'white'
+        onpress = {()=> navigation.toggleDrawer()}
+        />
+    })
+}));
+
 const CustomDrawerContentComponent = (props) => (
   <ScrollView>
       <SafeAreaView style = {styles.container}
@@ -181,7 +221,40 @@ const MainNavigator = createAppContainer(createDrawerNavigator({
             />
         )
     }
+},
+    Favorites : {
+
+    screen : FavoritesNavigator,
+       navigationOptions : {
+        title : 'My Favorites',
+        drawLabel : 'My Favorites',
+        drawerIcon : ({tintColor}) => (
+            <Icon 
+            name = 'heart'
+            type = 'font-awesome'
+            size = {24}
+            color = {tintColor}
+            />
+        ) 
+    }
+},
+Reservation : {
+
+screen : ReservationNavigator,
+   navigationOptions : {
+    title : 'Reserve Table',
+    drawLabel : 'Reserve Table',
+    drawerIcon : ({tintColor}) => (
+        <Icon 
+        name = 'cutlery'
+        type = 'font-awesome'
+        size = {24}
+        color = {tintColor}
+        />
+    ) 
 }
+}
+
 },
 {
     drawerBackgroundColor : '#D1C4E9',
